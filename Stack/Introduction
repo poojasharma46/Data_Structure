@@ -1,0 +1,8 @@
+Stack is an user-defined data structure. It is also known as LIFO (Last in First Out) data structure. In stack, an element can be inserted on top, deleted from top.
+It is an abstract data type which implies that it gives an implementation-independent view.
+Stack is supporting following operations:
+Push: Insert at top of the list/array.
+Pop: Delete element from the top of the list/array.
+Top: Returns the top element from the list/array.
+Size: Returns the size of the list/array.
+isEmpty: Returns True whether list/array is empty or not.
