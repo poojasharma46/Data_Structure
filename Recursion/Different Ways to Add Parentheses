@@ -1,0 +1,46 @@
+class Solution {
+public:
+
+    int perform(int op1, int op2, char oper){
+
+        if(oper == '+')
+            return op1+op2;
+        if(oper == '-')
+            return op1 - op2;
+        if(oper == '*')
+            return op1*op2;
+        return 0;
+    }
+    vector<int> diffWaysToCompute(string expression) {
+        
+        vector<int> results;
+        bool isNumber = true;
+
+        for(int i = 0; i < expression.size(); i++){
+
+            if(!isdigit(expression[i])){
+                isNumber = false;
+
+                vector<int> left = diffWaysToCompute(expression.substr(0, i));
+                vector<int> right = diffWaysToCompute(expression.substr(i+1));
+
+                for(int l = 0; l < left.size(); l++){
+
+                    for(int r = 0; r < right.size(); r++){
+
+                        int ans = perform(left[l], right[r], expression[i]);
+                       
+                        results.push_back(ans);
+                    }
+                }
+
+            }
+        }
+        if(isNumber == true){
+            int ans = stoi(expression);
+            results.push_back(ans);
+        }
+        return results;
+    }
+};
+
